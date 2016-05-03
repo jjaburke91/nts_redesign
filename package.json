@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.4",
-    "less": "^2.6.1"
+    "jquery": "^2.2.3",
+    "less": "^2.6.1",
+    "underscore": "^1.8.3"
   }
 }

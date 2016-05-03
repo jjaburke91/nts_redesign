@@ -1,21 +1,27 @@
 <html>
 <head>
+    <title>NTS | DON'T ASSUME</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link href="http://www.nts.live/css/style.min.5364ca54.css" type="text/css" rel="stylesheet"/>
     <link href="/style.css" type="text/css" rel="stylesheet" />
-    <title>NTS | DON'T ASSUME</title>
+
+    <script type="text/javascript" src="node_modules/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="nts_prep.js"></script>
 </head>
 
 <body>
     <header class="nts-full-width" >
         <div id="nts-navigation" class="nts-full-width">
             <span class="nts-logo"></span>
-            <button id="menu-trigger"><span class="menu-line"></span> <span class="menu-line"></span> <span class="menu-line"></span></button>
+            <!--<button id="menu-trigger"><span class="menu-line"></span> <span class="menu-line"></span> <span class="menu-line"></span></button>-->
             <span id="navigation-list">
                 <a class="navigation-list--item">Radio Shows</a>
                 <a class="navigation-list--item">Editorial</a>
                 <a class="navigation-list--item">Video</a>
                 <a class="navigation-list--item">Events</a>
+                <a class="navigation-list--item">Shop</a>
                 <a class="navigation-list--item">About</a>
 
             </span>
@@ -31,21 +37,79 @@
             </div>
         </div>
         <div id="nts-streams" class="nts-full-width">
-            <span class="nts-stream-cell nts-stream-cell--active text-center">
-                LDN
-                <span class="fa fa-caret-down float-right"></span>
+            <span class="nts-stream-cell nts-stream-cell--active text-center" onclick="nts_streams.selectStream('ldn')">
+                LDN: The Do!! You!! w/ Charlie Bones
+                <span class="fa fa-pause float-right"></span>
             </span>
-            <span class="nts-stream-cell text-center">
-                LA
-                <span class="fa fa-caret-down float-right"></span>
+            <span class="nts-stream-cell text-center" onclick="nts_streams.selectStream('la')">
+                LA: Kutmah
+                <span class="fa fa-play float-right"></span>
             </span>
-            <span class="nts-stream-cell text-center">
-                INT
-                <span class="fa fa-caret-down float-right"></span>
+            <span class="nts-stream-cell text-center" onclick="nts_streams.selectStream('int')">
+                INT: Dolly Parton Gabba Special
+                <span class="fa fa-play float-right"></span>
             </span>
-            <span class="nts-stream-cell text-center">
-                Discover
-            </span>
+            <!--<span class="nts-stream-cell text-center" >-->
+                <!--Discover-->
+            <!--</span>-->
+            <div class="stream-info stream-info__content--visible stream-info__content--playing nts-full-width">
+                <div class="stream-info__image float-left">
+                    <div class="stream-info__image__img" style="background-image: url('images/shows/charlie-bones.jpeg')" ></div>
+                </div>
+                <div class="stream-info__content float-left">
+                    <div class="stream-info__content__title text-bold text-spaced">
+                        The Do!! You!! w/ Charlie Bones
+                    </div>
+                    <div class="stream-info__content__tracklist">
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                    </div>
+                </div>
+            </div>
+            <div class="stream-info nts-full-width">
+                <div class="stream-info__image float-left">
+                    <div class="stream-info__image__img" style="background-image: url('images/shows/kutmah.jpg')" ></div>
+                </div>
+                <div class="stream-info__content float-left">
+                    <div class="stream-info__content__title text-bold text-spaced">
+                        Kutmah
+                    </div>
+                    <div class="stream-info__content__tracklist">
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                    </div>
+                </div>
+            </div>
+            <div class="stream-info nts-full-width">
+                <div class="stream-info__image float-left">
+                    <div class="stream-info__image__img" style="background-image: url('images/shows/nts-generic.jpg')" ></div>
+                </div>
+                <div class="stream-info__content float-left">
+                    <div class="stream-info__content__title text-bold text-spaced">
+                        Dolly Parton Gabba Special
+                    </div>
+                    <div class="stream-info__content__tracklist">
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                       <p>blasbglfdgfdg</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
    </header>
 
