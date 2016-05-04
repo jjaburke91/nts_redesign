@@ -15,15 +15,14 @@
     <header class="nts-full-width" >
         <div id="nts-navigation" class="nts-full-width">
             <span class="nts-logo"></span>
-            <!--<button id="menu-trigger"><span class="menu-line"></span> <span class="menu-line"></span> <span class="menu-line"></span></button>-->
-            <span id="navigation-list">
-                <a class="navigation-list--item">Radio Shows</a>
+            <div class="volume-bar hidden-phone hidden-tablet"><div class="volume-dot" style="left: 80.1px;"></div><div class="volume-active" style="width: 80.1px;"></div></div>
+            <span id="navigation-list" class="text-unselectable">
+                <a class="navigation-list--item">Discover</a>
                 <a class="navigation-list--item">Editorial</a>
                 <a class="navigation-list--item">Video</a>
                 <a class="navigation-list--item">Events</a>
                 <a class="navigation-list--item">Shop</a>
                 <a class="navigation-list--item">About</a>
-
             </span>
             <div class="social-links float-right">
                 <span class="icon icon-facebook"></span>
@@ -37,20 +36,21 @@
             </div>
         </div>
         <div id="nts-streams" class="nts-full-width">
-            <span class="nts-stream-cell nts-stream-cell--active text-center" onclick="nts_streams.selectStream('ldn')">
+            <span class="nts-stream-cell nts-stream-cell--live-now">LIVE NOW <i class="fa fa-circle nts-record" ></i></span>
+            <span id="ldn-nav" class="nts-stream-cell text-center text-unselectable" onclick="nts_streams.selectStream('ldn')">
                 LDN: The Do!! You!! w/ Charlie Bones
                 <span class="fa fa-pause float-right"></span>
             </span>
-            <span class="nts-stream-cell text-center" onclick="nts_streams.selectStream('la')">
+            <span id="la-nav" class="nts-stream-cell nts-stream-cell--active text-center text-unselectable" onclick="nts_streams.selectStream('la')">
                 LA: Kutmah
-                <span class="fa fa-play float-right"></span>
+                <span class="fa fa-pause float-right"></span>
             </span>
-            <span class="nts-stream-cell text-center" onclick="nts_streams.selectStream('int')">
+            <span id="int-nav" class="nts-stream-cell text-center text-unselectable" onclick="nts_streams.selectStream('int')">
                 INT: Dolly Parton Gabba Special
-                <span class="fa fa-play float-right"></span>
+                <span class="fa fa-pause float-right"></span>
             </span>
 
-            <div id="ldn-stream" class="stream-info stream-info__content--visible stream-info__content--playing nts-full-width">
+            <div id="ldn-stream" class="stream-info nts-full-width">
                 <div class="stream-info__image float-left">
                     <div class="stream-info__image__img" style="background-image: url('images/shows/charlie-bones.jpeg')" ></div>
                 </div>
@@ -58,54 +58,45 @@
                     <div class="stream-info__content__title text-bold text-spaced">
                         The Do!! You!! w/ Charlie Bones
                     </div>
-                    <div class="stream-info__content__tracklist">
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
+                    <div class="stream-info__content__subtitle text-italic">Disco, Soul, House</div>
+                    <div class="stream-info__content__description">
+                        How Do You feel this morning? Different? Me too. Do!! You!!! Whats going on? Who knows! Lets ask. Hang loose with Charlie Bones, and guests.
+                    </div>
+                    <div class="stream-info__content__action">
+                        <span class="icon icon-play"></span>
                     </div>
                 </div>
+                <div class="stream-info__hide" onclick="nts_streams.toggleViewable(false)"><i class="fa fa-angle-up"></i></div>
             </div>
-            <div id="la-stream" class="stream-info nts-full-width">
+            <div id="la-stream" class="stream-info stream-info--playing nts-full-width">
                 <div class="stream-info__image float-left">
                     <div class="stream-info__image__img" style="background-image: url('images/shows/kutmah.jpg')" ></div>
                 </div>
                 <div class="stream-info__content float-left">
-                    <div class="stream-info__content__title text-bold text-spaced">
-                        Kutmah
+                    <div class="stream-info__content__title text-bold text-spaced"><span style="color: rgb(186, 22, 22);">Live From LA:</span> Kutmah</div>
+                    <div class="stream-info__content__subtitle text-italic">Hip Hop, Beats, Soul</div>
+                    <div class="stream-info__content__action">
+                        <span class="icon icon-pause"></span>
                     </div>
-                    <div class="stream-info__content__tracklist">
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
+                    <div class="stream-info__content__description">
+                        Sketchbook was the LA beat night started by Kutmah back in 2004 and was the breeding ground for artists like Daedelus, Ras G, Dibiase, Georgia Anne Muldrow, Teebs and Flying Lotus. Now it's radio reincarnation is on this side of the Atlantic. Lock in.
                     </div>
                 </div>
+                <div class="stream-info__hide" onclick="nts_streams.toggleViewable(false)"><i class="fa fa-angle-up"></i></div>
             </div>
             <div id="int-stream" class="stream-info nts-full-width">
                 <div class="stream-info__image float-left">
                     <div class="stream-info__image__img" style="background-image: url('images/shows/nts-generic.jpg')" ></div>
                 </div>
                 <div class="stream-info__content float-left">
-                    <div class="stream-info__content__title text-bold text-spaced">
-                        Dolly Parton Gabba Special
-                    </div>
-                    <div class="stream-info__content__tracklist">
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
-                       <p>blasbglfdgfdg</p>
+                    <div class="stream-info__content__title text-bold text-spaced"> Dolly Parton Gabba Special</div>
+                    <div class="stream-info__content__subtitle text-italic">Gabba</div>
+                    <div class="stream-info__content__description"></div>
+                    <div class="stream-info__content__action">
+                        <span class="icon icon-play"></span>
                     </div>
                 </div>
+                <div class="stream-info__hide" onclick="nts_streams.toggleViewable(false)"><i class="fa fa-angle-up"></i></div>
             </div>
 
         </div>

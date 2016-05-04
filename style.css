@@ -27,10 +27,27 @@ header {
   top: 8px;
   left: 8px;
 }
+#nts-navigation .volume-bar {
+  width: 65px;
+  margin-left: 40px;
+}
+#nts-navigation .volume-bar .volume-dot {
+  left: 46px !important;
+  background-color: #ba1616;
+}
+#nts-navigation .volume-bar .volume-active {
+  width: 46px !important;
+  background-color: #ba1616;
+}
+#nts-navigation .volume-bar:before {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+#nts-navigation .volume-bar:after {
+  width: 0px;
+}
 #navigation-list {
   display: inline-block;
   margin-top: 5px;
-  margin-left: 40px;
   font-size: 14px;
 }
 .navigation-list--item {
@@ -55,55 +72,80 @@ header {
 /** NTS Streams **/
 #nts-streams {
   overflow: auto;
+  box-shadow: 0px -2px 10px -10px black;
 }
 .nts-stream-cell {
   float: left;
-  width: 33.33%;
+  width: calc(33.33% - 28px);
+  /* 28 is a third of the width of the LIVE NOW label */
   cursor: pointer;
   height: 28px;
   padding-top: 5px;
   font-size: 13px;
 }
-.nts-stream-cell:not(.nts-stream-cell--active).nts-stream-cell:hover {
+.nts-stream-cell:not(.nts-stream-cell--active).nts-stream-cell:not(.nts-stream-cell--live-now).nts-stream-cell:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 .nts-stream-cell.nts-stream-cell--active {
   background-color: rgba(255, 255, 255, 0.9);
   color: black;
 }
+.nts-stream-cell.nts-stream-cell--active .fa-pause {
+  display: inline-block;
+}
 .nts-stream-cell.nts-stream-cell--active .fa {
   color: black;
 }
-.nts-stream-cell .fa {
-  font-size: 12px;
-  color: white;
+.nts-stream-cell .fa-pause {
+  display: none;
   height: 22px;
   width: 22px;
   margin-top: 2px;
-}
-.nts-stream-cell .fa-pause {
   margin-right: 2px;
+  font-size: 12px;
+}
+.nts-stream-cell--live-now {
+  width: 84px;
+  background-color: rgba(255, 255, 255, 0.9);
+  cursor: default;
+  padding: 6px 0 0 7px;
+  border-right: 1px solid rgba(0, 0, 0, 0.6);
+  color: black;
 }
 .stream-info {
-  display: none;
+  position: relative;
+  display: block;
+  height: 0px;
   border-top: 1px solid rgba(255, 255, 255, 0.9);
   overflow: auto;
-  max-height: 450px;
-  height: 450px;
-  padding: 5px 5px;
+  max-height: 280px;
+  padding: 0px 5px;
+  -webkit-transition: 0.25s all linear;
+  -moz-transition: 0.25s all linear;
+  -ms-transition: 0.25s all linear;
+  -o-transition: 0.25s all linear;
+  transition: 0.25s all linear;
 }
-.stream-info.stream-info__content--playing {
+.stream-info.stream-info--playing {
   background-color: rgba(255, 255, 255, 0.9) !important;
   border: none;
   color: black;
 }
-.stream-info.stream-info__content--visible {
-  display: block;
+.stream-info.stream-info--playing .stream-info__content__subtitle {
+  border-color: black !important;
+}
+.stream-info.stream-info--playing .stream-info__hide {
+  color: rgba(0, 0, 0, 0.9);
+}
+.stream-info.stream-info--visible {
+  height: 280px;
+  padding: 5px;
 }
 .stream-info__image {
+  width: calc(33% + 57px);
   max-width: 600px;
-  width: 33%;
   overflow: auto;
+  height: 100%;
 }
 .stream-info__image__img {
   width: 100%;
@@ -112,16 +154,43 @@ header {
   background-size: cover;
   background-position: center center;
 }
+.stream-info__hide {
+  display: block;
+  position: absolute;
+  right: 7px;
+  bottom: 0px;
+  font-size: 38px;
+  cursor: pointer;
+}
 .stream-info__content {
   padding: 10px;
+  width: calc(67% - 57px);
+  height: 100%;
 }
 .stream-info__content__title {
   font-size: 40px;
+  line-height: 42px;
+  margin-right: 70px;
 }
-.stream-info__content__tracklist {
+.stream-info__content__subtitle {
+  border-bottom: 2px solid white;
+  padding-bottom: 16px;
+  margin-right: 70px;
+}
+.stream-info__content__action {
+  position: absolute;
+  top: 26px;
+  right: 12px;
+  font-size: 50px;
+  cursor: pointer;
+}
+.stream-info__content__description {
   font-size: 14px;
+  margin-top: 16px;
+  width: 100%;
+  max-width: 520px;
 }
-.stream-info__content__tracklist p {
+.stream-info__content__description p {
   margin: 0;
 }
 /****** Home Page ******/
@@ -183,17 +252,24 @@ header {
 .nts-logo:hover {
   opacity: 0.8;
 }
+.nts-arrow-up {
+  display: inline-block;
+  background: url('images/nts-caret-up.png');
+  background-size: 20px 20px;
+  width: 20px;
+  height: 20px;
+}
 .nts-arrow-down {
   display: inline-block;
   background: url('images/nts-caret-up.png');
+  background-size: 20px 20px;
+  width: 20px;
+  height: 20px;
   -webkit-transform: scaleY(-1);
   -moz-transform: scaleY(-1);
   -ms-transform: scaleY(-1);
   -o-transform: scaleY(-1);
   transform: scaleY(-1);
-  background-size: 20px 20px;
-  width: 20px;
-  height: 20px;
 }
 .nts-input {
   width: 215px;
@@ -204,6 +280,14 @@ header {
   border: none;
   border-bottom: 1px solid white;
 }
+.nts-record {
+  color: #ba1616 !important;
+  font-size: 10px;
+  display: inline-block;
+  line-height: 15px;
+  vertical-align: top;
+  margin-left: 4px;
+}
 .text-bold {
   font-weight: 800;
 }
@@ -212,6 +296,23 @@ header {
 }
 .text-center {
   text-align: center;
+}
+.text-italic {
+  font-style: italic;
+}
+.text-unselectable {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently */
 }
 .nts-full-width {
   width: 100%;
